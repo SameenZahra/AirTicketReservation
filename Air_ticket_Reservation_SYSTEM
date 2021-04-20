@@ -1,0 +1,1148 @@
+#include<iostream>
+#include<conio.h>
+#include<string>
+#include<fstream>
+using namespace std;
+char l_destination[5][20] = { "LAHORE","ISLAMABAD","KARACHI","PESHAWAR","QUETTA" };
+char i_destination[10][20] = { "LONDON","BERLIN","DUBAI","NEW YORK","BEIJING","PARIS","CAPE TOWN","TOKYO","LOS ANGELES","MUMBAI" };
+class mytime
+{
+protected:
+	int choose;
+public:
+	void getdata()
+	{
+		cout << "\n\t\t\tOn Which Time You Want To Travel ????" << endl;
+		cout << "\n\t\t\tPress 1 For 11-AM Route" << endl;
+		cout << "\n\t\t\tPress 2 For 10-AM Route" << endl;
+		cout << "\n\t\t\tPress 3 FOR 9-AM Route" << endl;
+		cin >> choose;
+	}
+	void show()
+	{
+		{
+			if (choose == 1)
+			{
+				cout << "|                                                                         " << endl;
+				cout << "|Flight My Time 11-AM                                                        " << endl;
+				cout << "|_________________________________________________________________________" << endl;
+				cout << "                  GOOD BYE AND HAVE A SAFE JOURNEY                        " << endl;
+				ofstream outfile;
+				outfile.open("E:\\E_ticket.txt", ios::app);
+				outfile << "|                                                                         " << endl <<
+					"|Flight My Time 11-AM                                                        " << endl <<
+					"|_________________________________________________________________________" << endl <<
+					"                  GOOD BYE AND HAVE A SAFE JOURNEY                        " << endl;
+			}
+
+			else if (choose == 2)
+			{
+				cout << "|                                                                         " << endl;
+				cout << "|Flight My Time 10-AM                                                        " << endl;
+				cout << "|_________________________________________________________________________" << endl;
+				cout << "                  GOOD BYE AND HAVE A SAFE JOURNEY                        " << endl;
+				ofstream outfile;
+				outfile.open("E:\\E_ticket.txt", ios::app);
+				outfile << "|                                                                         " << endl <<
+					"|Flight My Time 10-AM                                                        " << endl <<
+					"|_________________________________________________________________________" << endl <<
+					"                  GOOD BYE AND HAVE A SAFE JOURNEY                        " << endl;
+			}
+			else if (choose == 3)
+			{
+				cout << "|                                                                         " << endl;
+				cout << "|Flight My Time 9-AM                                                        " << endl;
+				cout << "|_________________________________________________________________________" << endl;
+				cout << "                  GOOD BYE AND HAVE A SAFE JOURNEY                        " << endl;
+				ofstream outfile;
+				outfile.open("E:\\E_ticket.txt", ios::app);
+				outfile << "|                                                                         " << endl <<
+					"|Flight My Time 9-AM                                                        " << endl <<
+					"|_________________________________________________________________________" << endl <<
+					"                  GOOD BYE AND HAVE A SAFE JOURNEY                        " << endl;
+			}
+			else
+				if (choose != 1 || choose != 2 || choose != 3)
+					cout << "wromg option " << endl;
+
+		}
+	}
+};
+class passenger
+{
+public:
+	virtual void getdata()
+	{}
+	virtual void show()
+	{}
+};
+class booking :public passenger
+{
+protected:
+	int num;
+	char ch;
+	char firstname[60];
+	char lastname[60];
+	char address[60];
+	char c_loc[30];
+	char dest[30];
+	char reservation_no[60];
+	int option;
+public:
+	void getdata()
+	{
+		cout << "\n\n\t\t***** Please Enter The Required Information For Passenger Number *****" << endl;
+		cout << "\n  Enter The First Name Of Passenger = ";
+		cin.getline(firstname, 60);
+		cout << "\n  Enter The Last Name Of Passenger = ";
+		cin.getline(lastname, 60);
+		cout << "\n  Enter Address Of Passenger = ";
+		cin.getline(address, 60);
+		cout << "\n  Enter the Resevation Number Of Ticket = ";
+		cin.getline(reservation_no, 60);
+		cout << "\n  Enter The Current Location Of Passenger ( IN CAPITAL LETTERS ONLY ) = ";
+		cin.getline(c_loc, 60);
+		cout << endl;
+		cout << "  Enter The Destination Of Passenger ( IN CAPITAL LETTERS ONLY ) = ";
+		cin.getline(dest, 60);
+		cout << endl;
+		system("CLS");
+	}
+	void show()
+	{
+		cout << "Your E-Ticket is :" << endl;
+		int t = 1;
+		int r = 12345;
+		cout << "                           AIRLINE TICKET                                 " << endl;
+		cout << "|Ticket No." << t << "                                Reference No." << r << "\t  " << endl;
+		cout << "|_________________________________________________________________________" << endl;
+		cout << "|Resevation No. :" << reservation_no << "                                     " << endl;
+		cout << "|__________________________________________________________________________" << endl;
+		cout << "|Passenger Information :                                                  " << endl;
+		cout << "|Name :" << lastname << "/" << firstname << "                                     " << endl;
+		cout << "|                                                                         " << endl;
+		cout << "|Address :" << address << "                                                   " << endl;
+		cout << "|_________________________________________________________________________" << endl;
+		cout << "|flight Information :                                                     " << endl;
+		cout << "|12 aug 2011                                                              " << endl;
+		cout << "|BOING 747                                                                " << endl;
+		cout << "|_________________________________________________________________________" << endl;
+		cout << "|Depart :" << c_loc << "                                                      " << endl;
+		cout << "|Arrive :" << dest << "                                                       " << endl;
+		cout << "|*BAGGAGE allowed 40 Kilos                                                " << endl;
+		cout << "|*contact Airline to Confirm baggage allowance                            " << endl;
+		cout << "|_________________________________________________________________________" << endl;
+		ofstream outfile("E:\\E_ticket.txt");
+		outfile << "                           AIRLINE TICKET                                 " << endl
+			<< "|Ticket No." << t << "                                Reference No." << r << "\t  " << endl
+			<< "|_________________________________________________________________________" << endl
+			<< "|Resevation No. :" << reservation_no << "                                     " << endl
+			<< "|__________________________________________________________________________" << endl
+			<< "|Passenger Information :                                                  " << endl
+			<< "|Name :" << lastname << "/" << firstname << "                                     " << endl
+			<< "|                                                                         " << endl
+			<< "|Address :" << address << "                                                   " << endl
+			<< "|_________________________________________________________________________" << endl
+			<< "|flight Information :                                                     " << endl
+			<< "|12 aug 2011                                                              " << endl
+			<< "|BOING 747                                                                " << endl
+			<< "|_________________________________________________________________________" << endl
+			<< "|Depart :" << c_loc << "                                                      " << endl
+			<< "|Arrive :" << dest << "                                                       " << endl
+			<< "|*BAGGAGE allowed 40 Kilos                                                " << endl
+			<< "|*contact Airline to Confirm baggage allowance                            " << endl
+			<< "|_________________________________________________________________________" << endl;
+		t = t + 1;
+		r = r + 1;
+	}
+};
+class search
+{
+public:
+	void searching()
+	{
+		cout << "\n\n\t\t\tFollowing Are The International Flights Available" << endl;
+		for (int i = 0; i<5; i++)
+		{
+			for (int j = 0; j<10; j++)
+			{
+				cout << "\n\t\tFlight From  " << l_destination[i] << "  TO  " << i_destination[j] << endl << endl;
+			}
+		}
+	}
+};
+class local : public booking
+{
+protected:
+	int b_seat;
+	int e_seat;
+	int ch;
+	int k;
+	int p;
+	int option;
+	mytime t1;
+public:
+	void getdata()
+	{
+		k = 0;
+		p = 0;
+		cout << "\n\n\t\t\t******* In Which AIRLINE You Want To Travel *******" << endl << endl;
+		cout << "\t\t\t1 - PIA";
+		cout << "\t\t\t\t2 - AIR BLUE" << endl << endl;
+		cout << "\t\t\t3 - ARAB EMIRATES";
+		cout << "\t\t4 - QATAR AIRWAYS" << endl << endl;
+		cout << "\t\t\t\t    Enter Your Choice = ";
+		cin >> option;
+		system("cls");
+		switch (option)
+		{
+		case 1:
+			if (option == 1) {
+				cout << "\n\n\n\t\t\t\tWelcome To PIA" << endl;
+				cout << "\n  These Are The Local Places Available\n\n";
+				cin.ignore();
+				for (int i = 0; i < 5; i++)
+				{
+					cout << l_destination[i] << endl;
+				}
+				booking::getdata();
+				for (int j = 0; j < 5; j++)
+				{
+					if (strcmp(l_destination[j], c_loc) == 0)
+					{
+						k++;
+					}
+				}
+				for (int i = 0; i < 5; i++)
+				{
+					if (strcmp(l_destination[i], c_loc) == 0)
+					{
+						p++;
+					}
+				}
+				if (k == 1 && p == 1)
+				{
+					cout << "\n\n\t\t*** Flight Available On This Route ***" << endl;
+					b_seat = 30;
+					e_seat = 40;
+					cout << "\n\tIn Which Class You Want To Travel ????" << endl;
+					cout << "\n\t  Select Your Choice" << endl << endl;
+					cout << "\n\t*************************************" << endl;
+					cout << "\n\t*     Press 1 for buisness class    *" << endl;
+					cout << "\t*     Press 2 for economy class     *" << endl;
+					cout << "\n\t*************************************" << endl;
+					cout << "\n\tEnter Your Choice = ";
+					cin >> ch;
+					cout << endl;
+					if (ch == 1 || ch == 2) {
+						switch (ch)
+						{
+						case 1:
+							b_seat--;
+							if (b_seat <= 0)
+								cout << "SORRY NO SEAT AVAILABLE" << endl;
+							else
+								cout << "SEAT AVAILABLE" << endl;
+							break;
+						case 2:
+
+							e_seat--;
+
+							if (e_seat <= 0)
+
+								cout << "\n\t\t\tOoooops Sorry No Seat Availabale......" << endl;
+							else
+								cout << "\n\t\t\tDear Customer Seat Is Available" << endl;
+							break;
+						default:
+							if (ch != 1 || ch != 2)
+							{
+								cout << "you have enterd a wrong choice" << endl;
+								cout << "unfortunately program is terminated " << endl;
+							}
+						}
+						if (ch == 1 || ch == 2)
+						{
+							t1.getdata();
+							system("CLS");
+							booking::show();
+							if (ch == 1)
+							{
+								cout << "|                                                                         " << endl;
+								cout << "|Ticket Information:                                                      " << endl;
+								cout << "|BUISNESS CLASS                                                           " << endl;
+								ofstream outfile;
+								outfile.open("E:\\E_ticket.txt", ios::app);
+								outfile << "|                                                                         " << endl
+									<< "|Ticket Information:                                                      " << endl
+									<< "|BUISNESS CLASS                                                           " << endl;
+							}
+							if (ch == 2)
+							{
+								cout << "|                                                                         " << endl;
+								cout << "|Ticket Information:                                                      " << endl;
+								cout << "|ECONOMY CLASS                                                            " << endl;
+								ofstream outfile;
+								outfile.open("E:\\E_ticket.txt", ios::app);
+								outfile << "|                                                                         " << endl
+									<< "|Ticket Information:                                                      " << endl
+									<< "|ECONOMY CLASS                                                           " << endl;
+							}
+							cout << "|Status: confirmed                                                        " << endl;
+							ofstream outfile;
+							outfile.open("E:\\E_ticket.txt", ios::app);
+							outfile << "|Status: confirmed                                                        " << endl;
+							t1.show();
+						}
+					}
+				}
+			}break;
+
+		case 2:
+			if (option == 2) {
+				cout << "\n\n\n\t\t\t\tWELCOME TO AIRBLUE" << endl;
+				cout << "\n  These Are The Local Places Available\n\n";
+				cin.ignore();
+				for (int i = 0; i < 5; i++)
+				{
+					cout << l_destination[i] << endl;
+				}
+				booking::getdata();
+				for (int j = 0; j < 5; j++)
+				{
+					if (strcmp(l_destination[j], c_loc) == 0)
+					{
+						k++;
+					}
+				}
+				for (int i = 0; i < 5; i++)
+				{
+					if (strcmp(l_destination[i], c_loc) == 0)
+					{
+						p++;
+					}
+				}
+				if (k == 1 && p == 1)
+				{
+					cout << "\n\n\t\t*** Flight Available On This Route ***" << endl;
+					b_seat = 30;
+					e_seat = 40;
+					cout << "\n\tIn Which Class You Want To Travel ????" << endl;
+					cout << "\n\t  Select Your Choice" << endl << endl;
+					cout << "\n\t*************************************" << endl;
+					cout << "\n\t*     Press 1 for buisness class    *" << endl;
+					cout << "\t*     Press 2 for economy class     *" << endl;
+					cout << "\n\t*************************************" << endl;
+					cout << "\n\tEnter Your Choice = ";
+					cin >> ch;
+					cout << endl;
+					if (ch == 1 || ch == 2) {
+						switch (ch)
+						{
+						case 1:
+							b_seat--;
+							if (b_seat <= 0)
+								cout << "SORRY NO SEAT AVAILABLE" << endl;
+							else
+								cout << "SEAT AVAILABLE" << endl;
+							break;
+						case 2:
+
+							e_seat--;
+
+							if (e_seat <= 0)
+
+								cout << "\n\t\t\tOoooops Sorry No Seat Availabale......" << endl;
+							else
+								cout << "\n\t\t\tDear Customer Seat Is Available" << endl;
+							break;
+
+						default:
+							if (ch != 1 || ch != 2)
+							{
+								cout << "you have enterd a wrong choice" << endl;
+								cout << "unfortunately program is terminated " << endl;
+							}
+						}
+						t1.getdata();
+						system("CLS");
+						booking::show();
+						if (ch == 1 || ch == 2)
+						{
+							if (ch == 1)
+							{
+								cout << "|                                                                         " << endl;
+								cout << "|Ticket Information:                                                      " << endl;
+								cout << "|BUISNESS CLASS                                                           " << endl;
+								ofstream outfile;
+								outfile.open("E:\\E_ticket.txt", ios::app);
+								outfile << "|                                                                         " << endl
+									<< "|Ticket Information:                                                      " << endl
+									<< "|BUISNESS CLASS                                                           " << endl;
+							}
+							if (ch == 2)
+							{
+								cout << "|                                                                         " << endl;
+								cout << "|Ticket Information:                                                      " << endl;
+								cout << "|ECONOMY CLASS                                                            " << endl;
+								ofstream outfile;
+								outfile.open("E:\\E_ticket.txt", ios::app);
+								outfile << "|                                                                         " << endl
+									<< "|Ticket Information:                                                      " << endl
+									<< "|ECONOMY CLASS                                                           " << endl;
+							}
+							cout << "|Status: confirmed                                                        " << endl;
+							ofstream outfile;
+							outfile.open("E:\\E_ticket.txt", ios::app);
+							outfile << "|Status: confirmed                                                        " << endl;
+							t1.show();
+						}
+					}
+				}
+			}break;
+		case 3:
+			if (option == 3) {
+				cout << "\n\n\n\t\t\t\tWELCOME TO ARAB EMIRATES" << endl;
+				cout << "\n  These Are The Local Places Available\n\n";
+				cin.ignore();
+				for (int i = 0; i < 5; i++)
+				{
+					cout << l_destination[i] << endl;
+				}
+				booking::getdata();
+				for (int j = 0; j < 5; j++)
+				{
+					if (strcmp(l_destination[j], c_loc) == 0)
+					{
+						k++;
+					}
+				}
+				for (int i = 0; i < 5; i++)
+				{
+					if (strcmp(l_destination[i], c_loc) == 0)
+					{
+						p++;
+					}
+				}
+				if (k == 1 && p == 1)
+				{
+					cout << "\n\n\t\t*** Flight Available On This Route ***" << endl;
+					b_seat = 30;
+					e_seat = 40;
+					cout << "\n\tIn Which Class You Want To Travel ????" << endl;
+					cout << "\n\t  Select Your Choice" << endl << endl;
+					cout << "\n\t*************************************" << endl;
+					cout << "\n\t*     Press 1 for buisness class    *" << endl;
+					cout << "\t*     Press 2 for economy class     *" << endl;
+					cout << "\n\t*************************************" << endl;
+					cout << "\n\tEnter Your Choice = ";
+					cin >> ch;
+					cout << endl;
+					if (ch == 1 || ch == 2) {
+						switch (ch)
+						{
+						case 1:
+							b_seat--;
+							if (b_seat <= 0)
+								cout << "SORRY NO SEAT AVAILABLE" << endl;
+							else
+								cout << "SEAT AVAILABLE" << endl;
+							break;
+						case 2:
+
+							e_seat--;
+
+							if (e_seat <= 0)
+
+								cout << "\n\t\t\tOoooops Sorry No Seat Availabale......" << endl;
+							else
+								cout << "\n\t\t\tDear Customer Seat Is Available" << endl;
+							break;
+						default:
+							if (ch != 1 || ch != 2)
+							{
+								cout << "you have enterd a wrong choice" << endl;
+								cout << "unfortunately program is terminated " << endl;
+							}
+
+						}
+						t1.getdata();
+						system("CLS");
+						booking::show();
+						if (ch == 1 || ch == 2)
+						{
+							if (ch == 1)
+							{
+								cout << "|                                                                         " << endl;
+								cout << "|Ticket Information:                                                      " << endl;
+								cout << "|BUISNESS CLASS                                                           " << endl;
+								ofstream outfile;
+								outfile.open("E:\\E_ticket.txt", ios::app);
+								outfile << "|                                                                         " << endl
+									<< "|Ticket Information:                                                      " << endl
+									<< "|BUISNESS CLASS                                                           " << endl;
+							}
+							if (ch == 2)
+							{
+								cout << "|                                                                         " << endl;
+								cout << "|Ticket Information:                                                      " << endl;
+								cout << "|ECONOMY CLASS                                                            " << endl;
+								ofstream outfile;
+								outfile.open("E:\\E_ticket.txt", ios::app);
+								outfile << "|                                                                         " << endl
+									<< "|Ticket Information:                                                      " << endl
+									<< "|ECONOMY CLASS                                                           " << endl;
+							}
+							cout << "|Status: confirmed                                                        " << endl;
+							ofstream outfile;
+							outfile.open("E:\\E_ticket.txt", ios::app);
+							outfile << "|Status: confirmed                                                        " << endl;
+							t1.show();
+						}
+					}
+				}
+			}break;
+		case 4:
+			if (option == 4) {
+				cout << "\n\n\n\t\t\t\tWELCOME TO QATAR AIRWAYS" << endl;
+				cout << "\n  These Are The Local Places Available\n\n";
+				cin.ignore();
+				for (int i = 0; i < 5; i++)
+				{
+					cout << l_destination[i] << endl;
+				}
+				booking::getdata();
+				for (int j = 0; j < 5; j++)
+				{
+					if (strcmp(l_destination[j], c_loc) == 0)
+					{
+						k++;
+					}
+				}
+				for (int i = 0; i < 5; i++)
+				{
+					if (strcmp(l_destination[i], c_loc) == 0)
+					{
+						p++;
+					}
+				}
+				if (k == 1 && p == 1)
+				{
+					cout << "\n\n\t\t*** Flight Available On This Route ***" << endl;
+					b_seat = 30;
+					e_seat = 40;
+					cout << "\n\tIn Which Class You Want To Travel ????" << endl;
+					cout << "\n\t  Select Your Choice" << endl << endl;
+					cout << "\n\t*************************************" << endl;
+					cout << "\n\t*     Press 1 for buisness class    *" << endl;
+					cout << "\t*     Press 2 for economy class     *" << endl;
+					cout << "\n\t*************************************" << endl;
+					cout << "\n\tEnter Your Choice = ";
+					cin >> ch;
+					cout << endl;
+					if (ch == 1 || ch == 2) {
+						switch (ch)
+						{
+						case 1:
+							b_seat--;
+							if (b_seat <= 0)
+								cout << "SORRY NO SEAT AVAILABLE" << endl;
+							else
+								cout << "SEAT AVAILABLE" << endl;
+							break;
+						case 2:
+
+							e_seat--;
+
+							if (e_seat <= 0)
+
+								cout << "\n\t\t\tOoooops Sorry No Seat Availabale......" << endl;
+							else
+								cout << "\n\t\t\tDear Customer Seat Is Available" << endl;
+							break;
+						default:
+							if (ch != 1 || ch != 2)
+							{
+								cout << "you have enterd a wrong choice" << endl;
+								cout << "unfortunately program is terminated " << endl;
+							}
+						}
+						t1.getdata();
+						system("CLS");
+						booking::show();
+						if (ch == 1 || ch == 2)
+						{
+							if (ch == 1)
+							{
+								cout << "|                                                                         " << endl;
+								cout << "|Ticket Information:                                                      " << endl;
+								cout << "|BUISNESS CLASS                                                           " << endl;
+								ofstream outfile;
+								outfile.open("E:\\E_ticket.txt", ios::app);
+								outfile << "|                                                                         " << endl
+									<< "|Ticket Information:                                                      " << endl
+									<< "|BUISNESS CLASS                                                           " << endl;
+							}
+							if (ch == 2)
+							{
+								cout << "|                                                                         " << endl;
+								cout << "|Ticket Information:                                                      " << endl;
+								cout << "|ECONOMY CLASS                                                            " << endl;
+								ofstream outfile;
+								outfile.open("E:\\E_ticket.txt", ios::app);
+								outfile << "|                                                                         " << endl
+									<< "|Ticket Information:                                                      " << endl
+									<< "|ECONOMY CLASS                                                           " << endl;
+							}
+							cout << "|Status: confirmed                                                        " << endl;
+							ofstream outfile;
+							outfile.open("E:\\E_ticket.txt", ios::app);
+							outfile << "|Status: confirmed                                                        " << endl;
+							t1.show();
+						}
+					}
+				}
+			}break;
+		default:
+		{
+			cout << "__________________________________________________________________________" << endl;
+			cout << "|     SORRY NO FLIGHT AVAILABLE ON THIS ROUTE RIGHT NOW                   " << endl;
+			cout << "_____________________________________________________________________" << endl;
+		}
+
+		}
+	
+	}
+
+};
+class international :public booking
+{
+protected:
+	int b1_seat;
+	int e1_seat;
+	int choice;
+	int c;
+	int b;
+	int v;
+	char g;
+	mytime t1;
+public:
+	void getdata()
+	{
+		b = 0;
+		v = 0;
+		cout << "\n\n\t\t\t******* In Which AIRLINE You Want To Travel *******" << endl << endl;
+		cout << "\t\t\t1 - PIA";
+		cout << "\t\t\t\t2 - AIR BLUE" << endl << endl;
+		cout << "\t\t\t3 - ARAB EMIRATES";
+		cout << "\t\t4 - QATAR AIRWAYS" << endl << endl;
+		cout << "\t\t\t\t\tEnter Your Choice = ";
+		cin >> option;
+		system("cls");
+		switch (option)
+		{
+		case 1:
+			if (option == 1) {
+				cout << "\n\n\n\t\t\t\tWelcome To PIA" << endl;
+				cout << "\n   These Are The Local Places Available\n\n" << endl;
+				cin.ignore();
+				for (int i = 0; i < 10; i++)
+				{
+					cout << i_destination[i] << endl;
+				}
+				booking::getdata();
+				for (int j = 0; j < 10; j++)
+				{
+					if (strcmp(i_destination[j], dest) == 0)
+					{
+						v++;
+					}
+				}
+				for (int i = 0; i < 5; i++)
+				{
+					if (strcmp(l_destination[i], c_loc) == 0)
+					{
+						b++;
+					}
+				}
+				if (b == 1 && v == 1)
+				{
+					cout << "\n\n\t\t*** Flight Available On This Route ***" << endl;
+					b1_seat = 30;
+					e1_seat = 40;
+					cout << "\n\tIn Which Class You Want To Travel ????" << endl;
+					cout << "\n\t  Select Your Choice" << endl << endl;
+					cout << "\n\t*************************************" << endl;
+					cout << "\n\t*     Press 1 for buisness class    *" << endl;
+					cout << "\t*     Press 2 for economy class     *" << endl;
+					cout << "\n\t*************************************" << endl;
+					cout << "\n\tEnter Your Choice = ";
+					cin >> choice;
+					cout << endl;
+					if (choice == 1 || choice == 2) {
+						switch (choice)
+							
+						{
+						case 1:
+							b1_seat--;
+							if (b1_seat <= 0)
+								cout << "SORRY NO SEAT AVAILABLE" << endl;
+							else
+								cout << "SEAT AVAILABLE" << endl;
+							break;
+						case 2:
+							e1_seat--;
+							if (e1_seat <= 0)
+								cout << "SORRY NO SEAT AVAILABLE" << endl;
+							else
+								cout << "SEAT AVAILABLE" << endl;
+							break;
+						default:
+							if (choice != 1 || choice != 2)
+							{
+								cout << "you have enterd a wrong choice" << endl;
+								cout << "unfortunately program is terminated " << endl;
+							}
+							
+								t1.getdata();
+								system("CLS");
+								booking::show();
+								if (choice == 1)
+								{
+									cout << "|                                                                         " << endl;
+									cout << "|Ticket Information:                                                      " << endl;
+									cout << "|BUISNESS CLASS                                                           " << endl;
+									ofstream outfile;
+									outfile.open("E:\\E_ticket.txt", ios::app);
+									outfile << "|                                                                         " << endl
+										<< "|Ticket Information:                                                      " << endl
+										<< "|BUSINESS CLASS                                                           " << endl;
+								}
+								if (choice == 2)
+								{
+									cout << "|                                                                         " << endl;
+									cout << "|Ticket Information:                                                      " << endl;
+									cout << "|ECONOMY CLASS                                                           " << endl;
+									ofstream outfile;
+									outfile.open("E:\\E_ticket.txt", ios::app);
+									outfile << "|                                                                         " << endl
+										<< "|Ticket Information:                                                      " << endl
+										<< "|ECONOMY CLASS                                                           " << endl;
+								}
+								cout << "|Status: confirmed                                                        " << endl;
+								ofstream outfile;
+								outfile.open("E:\\E_ticket.txt", ios::app);
+								outfile << "|Status: confirmed                                                        " << endl;
+								t1.show();
+							
+						}
+					}
+
+				}break;
+		case 2:
+			if (option == 2) {
+				cout << "\n\n\n\t\t\t\tWELCOME TO AIRBLUE" << endl;
+				cout << "\n   These Are The Local Places Available\n\n" << endl;
+				cin.ignore();
+				for (int i = 0; i < 10; i++)
+				{
+					cout << i_destination[i] << endl;
+				}
+				booking::getdata();
+				for (int j = 0; j < 10; j++)
+				{
+					if (strcmp(i_destination[j], dest) == 0)
+					{
+						v++;
+					}
+				}
+				for (int i = 0; i < 5; i++)
+				{
+					if (strcmp(l_destination[i], c_loc) == 0)
+					{
+						b++;
+					}
+				}
+				if (b == 1 && v == 1)
+				{
+					cout << "\n\n\t\t*** Flight Available On This Route ***" << endl;
+					b1_seat = 30;
+					e1_seat = 40;
+					cout << "\n\tIn Which Class You Want To Travel ????" << endl;
+					cout << "\n\t  Select Your Choice" << endl << endl;
+					cout << "\n\t*************************************" << endl;
+					cout << "\n\t*     Press 1 for buisness class    *" << endl;
+					cout << "\t*     Press 2 for economy class     *" << endl;
+					cout << "\n\t*************************************" << endl;
+					cout << "\n\tEnter Your Choice = ";
+					cin >> choice;
+					cout << endl;
+					if (choice == 1 || choice == 2) {
+						switch (choice)
+						{
+						case 1:
+							b1_seat--;
+							if (b1_seat <= 0)
+								cout << "SORRY NO SEAT AVAILABLE" << endl;
+							else
+								cout << "SEAT AVAILABLE" << endl;
+							break;
+						case 2:
+							e1_seat--;
+							if (e1_seat <= 0)
+								cout << "SORRY NO SEAT AVAILABLE" << endl;
+							else
+								cout << "SEAT AVAILABLE" << endl;
+							break;
+						default:
+							if (choice != 1 || choice != 2)
+							{
+								cout << "you have enterd a wrong choice" << endl;
+								cout << "unfortunately program is terminated " << endl;
+							}
+						}
+						
+							t1.getdata();
+							system("CLS");
+							booking::show();
+							if (choice == 1)
+							{
+								cout << "|                                                                         " << endl;
+								cout << "|Ticket Information:                                                      " << endl;
+								cout << "|BUISNESS CLASS                                                           " << endl;
+								ofstream outfile;
+								outfile.open("E:\\E_ticket.txt", ios::app);
+								outfile << "|                                                                         " << endl
+									<< "|Ticket Information:                                                      " << endl
+									<< "|BUSINESS CLASS                                                           " << endl;
+							}
+							if (choice == 2)
+							{
+								cout << "|                                                                         " << endl;
+								cout << "|Ticket Information:                                                      " << endl;
+								cout << "|ECONOMY CLASS                                                           " << endl;
+								ofstream outfile;
+								outfile.open("E:\\E_ticket.txt", ios::app);
+								outfile << "|                                                                         " << endl
+									<< "|Ticket Information:                                                      " << endl
+									<< "|ECONOMY CLASS                                                           " << endl;
+							}
+							cout << "|Status: confirmed                                                        " << endl;
+							ofstream outfile;
+							outfile.open("E:\\E_ticket.txt", ios::app);
+							outfile << "|Status: confirmed                                                        " << endl;
+							t1.show();
+						
+					}
+				}
+			}		break;
+		case 3:
+			if (option == 3) {
+				cout << "\n\n\n\t\t\t\tWELCOME TO ARAB EMIRATES" << endl;
+				cout << "\n   These Are The Local Places Available\n\n" << endl;
+				cin.ignore();
+				for (int i = 0; i < 10; i++)
+				{
+					cout << i_destination[i] << endl;
+				}
+				booking::getdata();
+				for (int j = 0; j < 10; j++)
+				{
+					if (strcmp(i_destination[j], dest) == 0)
+					{
+						v++;
+					}
+				}
+				for (int i = 0; i < 5; i++)
+				{
+					if (strcmp(l_destination[i], c_loc) == 0)
+					{
+						b++;
+					}
+				}
+				if (b == 1 && v == 1)
+				{
+					cout << "\n\n\t\t*** Flight Available On This Route ***" << endl;
+					b1_seat = 30;
+					e1_seat = 40;
+					cout << "\n\tIn Which Class You Want To Travel ????" << endl;
+					cout << "\n\t  Select Your Choice" << endl << endl;
+					cout << "\n\t*************************************" << endl;
+					cout << "\n\t*     Press 1 for buisness class    *" << endl;
+					cout << "\t*     Press 2 for economy class     *" << endl;
+					cout << "\n\t*************************************" << endl;
+					cout << "\n\tEnter Your Choice = ";
+					cin >> choice;
+					if (choice == 1 || choice == 2) {
+						cout << endl;
+						switch (choice)
+						{
+						case 1:
+							b1_seat--;
+							if (b1_seat <= 0)
+								cout << "SORRY NO SEAT AVAILABLE" << endl;
+							else
+								cout << "SEAT AVAILABLE" << endl;
+							break;
+						case 2:
+							e1_seat--;
+							if (e1_seat <= 0)
+								cout << "SORRY NO SEAT AVAILABLE" << endl;
+							else
+								cout << "SEAT AVAILABLE" << endl;
+							break;
+						default:
+							if (choice != 1 || choice != 2)
+							{
+								cout << "you have enterd a wrong choice" << endl;
+								cout << "unfortunately program is terminated " << endl;
+							}
+						}
+						
+							t1.getdata();
+							system("CLS");
+							booking::show();
+							if (choice == 1)
+							{
+								cout << "|                                                                         " << endl;
+								cout << "|Ticket Information:                                                      " << endl;
+								cout << "|BUISNESS CLASS                                                           " << endl;
+								ofstream outfile;
+								outfile.open("E:\\E_ticket.txt", ios::app);
+								outfile << "|                                                                         " << endl
+									<< "|Ticket Information:                                                      " << endl
+									<< "|BUSINESS CLASS                                                           " << endl;
+							}
+							if (choice == 2)
+							{
+								cout << "|                                                                         " << endl;
+								cout << "|Ticket Information:                                                      " << endl;
+								cout << "|ECONOMY CLASS                                                           " << endl;
+								ofstream outfile;
+								outfile.open("E:\\E_ticket.txt", ios::app);
+								outfile << "|                                                                         " << endl
+									<< "|Ticket Information:                                                      " << endl
+									<< "|ECONOMY CLASS                                                           " << endl;
+							}
+							cout << "|Status: confirmed                                                        " << endl;
+							ofstream outfile;
+							outfile.open("E:\\E_ticket.txt", ios::app);
+							outfile << "|Status: confirmed                                                        " << endl;
+							t1.show();
+						
+					}
+				}
+			}break;
+		case 4:
+			if (option == 4) {
+				cout << "\n\n\n\t\t\t\tWELCOME TO QATAR AIRWAYS" << endl;
+				cout << "\n   These Are The Local Places Available\n\n" << endl;
+				cin.ignore();
+				for (int i = 0; i < 10; i++)
+				{
+					cout << i_destination[i] << endl;
+				}
+				booking::getdata();
+				for (int j = 0; j < 10; j++)
+				{
+					if (strcmp(i_destination[j], dest) == 0)
+					{
+						v++;
+					}
+				}
+				for (int i = 0; i < 5; i++)
+				{
+					if (strcmp(l_destination[i], c_loc) == 0)
+					{
+						b++;
+					}
+				}
+				if (b == 1 && v == 1)
+				{
+					cout << "\n\n\t\t*** Flight Available On This Route ***" << endl;
+					b1_seat = 30;
+					e1_seat = 40;
+					cout << "\n\tIn Which Class You Want To Travel ????" << endl;
+					cout << "\n\t  Select Your Choice" << endl << endl;
+					cout << "\n\t*************************************" << endl;
+					cout << "\n\t*     Press 1 for buisness class    *" << endl;
+					cout << "\t*     Press 2 for economy class     *" << endl;
+					cout << "\n\t*************************************" << endl;
+					cout << "\n\tEnter Your Choice = ";
+					cin >> choice;
+					cout << endl;
+					if (choice == 1 || choice == 2) {
+						switch (choice)
+						{
+						case 1:
+							b1_seat--;
+							if (b1_seat <= 0)
+								cout << "SORRY NO SEAT AVAILABLE" << endl;
+							else
+								cout << "SEAT AVAILABLE" << endl;
+							break;
+						case 2:
+							e1_seat--;
+							if (e1_seat <= 0)
+								cout << "SORRY NO SEAT AVAILABLE" << endl;
+							else
+								cout << "SEAT AVAILABLE" << endl;
+							break;
+						default:
+							if (ch != 1 || ch != 2)
+							{
+								cout << "you have enterd a wrong choice" << endl;
+								cout << "unfortunately program is terminated " << endl;
+							}
+						}
+						
+							t1.getdata();
+							system("CLS");
+							booking::show();
+							if (choice == 1)
+							{
+								cout << "|                                                                         " << endl;
+								cout << "|Ticket Information:                                                      " << endl;
+								cout << "|BUISNESS CLASS                                                           " << endl;
+								ofstream outfile;
+								outfile.open("E:\\E_ticket.txt", ios::app);
+								outfile << "|                                                                         " << endl
+									<< "|Ticket Information:                                                      " << endl
+									<< "|BUSINESS CLASS                                                           " << endl;
+							}
+							if (choice == 2)
+							{
+								cout << "|                                                                         " << endl;
+								cout << "|Ticket Information:                                                      " << endl;
+								cout << "|ECONOMY CLASS                                                           " << endl;
+								ofstream outfile;
+								outfile.open("E:\\E_ticket.txt", ios::app);
+								outfile << "|                                                                         " << endl
+									<< "|Ticket Information:                                                      " << endl
+									<< "|ECONOMY CLASS                                                           " << endl;
+							}
+							cout << "|Status: confirmed                                                        " << endl;
+							ofstream outfile;
+							outfile.open("E:\\E_ticket.txt", ios::app);
+							outfile << "|Status: confirmed                                                        " << endl;
+							t1.show();
+						
+					}
+				}
+			}break;
+
+		default:
+		{
+			cout << "__________________________________________________________________________" << endl;
+			cout << "|     SORRY NO FLIGHT AVAILABLE ON THIS ROUTE RIGHT NOW                   " << endl;
+			cout << "__________________________________________________________________________" << endl;
+		}
+			}
+
+		}
+	}
+};
+
+
+class main1
+{
+private:
+	char f;
+	int menu_choice;
+	char a;
+public:
+	void getdata()
+	{
+	m:
+		cout << "\n\n\n";
+		cout << "\t\t\t\t*******************************************" << endl;
+		cout << "\n\t\t\t\t*    H-M-S AIRTICKET RESERVATION SYSTEM     *" << endl;
+		cout << "\n\t\t\t\t*  ____________________________________   *" << endl;
+		cout << "\t\t\t\t*    PROJECT BY: SYEDA SAMEEN ZAHRA       *" << endl;
+		cout << "\t\t\t\t*                MARIA WAHEED             *" << endl;
+		cout << "\t\t\t\t*                MOHAMMAD HAMZA RASHID    *" << endl;
+		cout << "\t\t\t\t*  ____________________________________   *" << endl;
+		cout << "\t\t\t\t*              MAIN MENU                  *" << endl;
+		cout << "\t\t\t\t*           ENTER YOUR CHOICE             *" << endl;
+		cout << "\t\t\t\t*      PRESS 1 FOR LOCAL BOOKING          *" << endl;
+		cout << "\t\t\t\t*    PRESS 2 FOR INTERNATIONAL BOOKING    *" << endl;
+		cout << "\t\t\t\t*      PRESS 3 FOR SEARCH OF FLIGHTS      *" << endl;
+		cout << "\n\t\t\t\t*******************************************" << endl;
+		cout << "\n\t\t\t\t\tNOW ENTER YOUR CHOICE = ";
+		cin >> menu_choice;
+		system("cls");
+		passenger* p1;
+		booking b1;
+		international i1;
+		local l1;
+		char back;
+		switch (menu_choice)
+		{
+
+		case 1:
+			p1 = &l1;
+			p1->getdata();
+			cout << "To Go To Main Menu Press b" << endl;
+			cin >> back;
+			system("CLS");
+			if (back == 'b')
+			{
+				goto m;
+			}
+			else
+			{
+				cout << "\n\n\n\n\n\n";
+				cout << "BYE FROM  HMS AIR RESERVATION SYSTEM";
+			}
+			break;
+		case 2:
+			p1 = &i1;
+			p1->getdata();
+			cout << "To Go To Main Menu Press b" << endl;
+			cin >> back;
+			system("CLS");
+			if (back == 'b')
+			{
+				goto m;
+			}
+			else
+			{
+				cout << "\n\n\n\n\n\n";
+				cout << "BYE FROM HMS AIR RESERVATION SYSTEM";
+			}
+			break;
+		case 3:
+			search s1;
+			s1.searching();
+			cout << "To Go To Main Menu Press b" << endl;
+			cin >> back;
+			system("CLS");
+			if (back == 'b')
+			{
+				goto m;
+			}
+			else
+			{
+				cout << "\n\n\n\n\n\n";
+				cout << "BYE FROM HMS AIR RESERVATION SYSTEM";
+			}
+			break;
+		default:
+			if (menu_choice != 1 || menu_choice != 2 || menu_choice != 3) {
+				{
+					goto m;
+				}
+			}
+		}
+	}
+};
+void main()
+{
+	cout << "\t\tAIRWAYS RESERVATION\t\t" << endl;
+	system("color 4f");
+	cout << "\n\n\n\n\n\n\n\n\n\n\t\t     WELCOME TO HMS AIRWAYS RESERVATION SYSTEM";
+	system("cls");
+	system("cls");
+	main1 m1;
+	m1.getdata();
+}
